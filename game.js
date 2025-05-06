@@ -1,5 +1,6 @@
-document.querySelectorAll('.card-inner').forEach(card => {
+document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
+        const inner = card.querySelector('.card-inner');
+        inner.classList.toggle('flipped');
     });
 });
