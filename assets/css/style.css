@@ -22,12 +22,53 @@
     align-items: center;
     font-size: 24px;
     cursor: pointer;
-    transition: transfrom 0.2s;
-    padding: 0px;
+    transition: transform 0.2s;
+    padding: 0px
+    perspective: 1000px;
 }
 .card:hover {
     transform: scale(1.1);
 }
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+/* Style for flipping the card */
+
+.card-inner.flipped {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+/* Style when the card is flipped */
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card-front {
+  background-color: #ccc;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #fff;
+}
+
 .score-box {
     width: 150px;
     margin: 20px auto;
@@ -39,23 +80,4 @@
     border-radius: 5px;
     color: #333;
     font-weight: bold;
-}
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.2s;
-}
-/* Style for flipping the card */
-
-.card.flip {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-/* Style when the card is flipped */
-.card.flipped .card.flip {
-    transform: rotateY(180deg);
 }
