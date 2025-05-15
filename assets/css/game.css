@@ -95,7 +95,7 @@ body {
 }
 /* Title and logo styles */
 .title {
-    position: absolute;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

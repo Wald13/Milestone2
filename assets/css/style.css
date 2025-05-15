@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 body {
   margin: 0;
   font-family: 'Bangers', cursive, sans-serif;
@@ -5,38 +7,33 @@ body {
 }
 
 .navbar {
-  display: flex;
   position: relative;
   background-color: #0c2340;
   border-bottom: 5px solid rgb(248, 94, 5);
-  height: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 10px 0;
 }
 
 /* Centered logo */
-.center-logo {
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
 .logo {
-  width: 150px;
+  width: 60px;
   height: auto;
+  display: block;
+  margin:0 auto 5px auto;
 }
 
-/* Left-side nav links */
+/* Links at the bottom left of the navbar */
 .nav-links {
   position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 30px;
+  bottom: 0; /* Moves the links to the bottom of the navbar */
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .nav-links a {
