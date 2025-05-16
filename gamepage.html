@@ -22,8 +22,10 @@
 </div>
 
     <button id="ngb">New Game</button>
+    <br>Flips: <span id="flips">0</span>
     <div class="score-box">
-        Score: <span id="score">0</span>
+        <span id="score">0</span>
+        Score: 
     </div>
 
     <div class="cardbox">
@@ -195,6 +197,13 @@
   <div class="modal-content">
     <span class="close">&times;</span>
     <iframe src="instructions.html" width="100%" height="400px" style="border: none;"></iframe>
+  </div>
+</div>
+<div id="winModal" class="modal">
+  <div class="modal-content">
+    <span class="close-win">&times;</span>
+    <h2>Congratulations! You did match all cards</h2>
+    <button id="nextGame">Next Game</button>
   </div>
 </div>
 </body>

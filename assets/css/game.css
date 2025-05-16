@@ -170,5 +170,16 @@ body {
   cursor: pointer;
   z-index: 1000;
 }
-
-
+/* Card matched styles */
+.card.matched {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+/* Cardbox background image */
+.cardbox {
+  background-image: url('assets/images/your-background.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
