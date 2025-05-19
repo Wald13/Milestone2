@@ -3,8 +3,15 @@
 body {
   margin: 0;
   font-family: 'Bangers', cursive, sans-serif;
-  background-color: #fdf6e3;
+ 
+  background-image: url('../images/backgroundimage2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
+
 
 .navbar {
   position: relative;

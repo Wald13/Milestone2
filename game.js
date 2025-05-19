@@ -135,6 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function startNewGame() {
     score = 0;
+    startround();
+  }
+  function startRound() {
     flips = 0;
     scoreDisplay.textContent = score;
     flipDisplay.textContent = flips;
@@ -152,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("nextGame").addEventListener("click", () => {
     document.getElementById("winModal").style.display = "none";
-    startNewGame();
+    startRound();
   });
 
   document.querySelector("#winModal .close-win").addEventListener("click", () => {
