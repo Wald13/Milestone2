@@ -1,5 +1,7 @@
-
 document.addEventListener("DOMContentLoaded", () => {
+  // -----------------------------
+  // Card Data
+  // -----------------------------
   const cardData = [
     { id: 1, img: "assets/images/gohan1.jpg" },
     { id: 2, img: "assets/images/goku1.jpg" },
@@ -17,10 +19,34 @@ document.addEventListener("DOMContentLoaded", () => {
   let score = 0;
   let flips = 0;
 
+  // -----------------------------
+  // DOM Elements
+  // -----------------------------
   const cardbox = document.querySelector(".cardbox");
   const scoreDisplay = document.getElementById("score");
   const flipDisplay = document.getElementById("flips");
 
+  // -----------------------------
+  // Background Image Logic
+  // -----------------------------
+  const backgrounds = [
+    "assets/images/backgroundimagegame1.jpg",
+    "assets/images/backgroundimagegame2.jpg",
+    "assets/images/backgroundimagegame3.jpg",
+  ];
+
+  function setRandomBackground() {
+    const randomIndex = Math.floor(Math.random() * backgrounds.length);
+    const selectedBackground = backgrounds[randomIndex];
+    cardbox.style.backgroundImage = `url('${selectedBackground}')`;
+    cardbox.style.backgroundSize = 'cover';
+    cardbox.style.backgroundPosition = 'center';
+    cardbox.style.backgroundRepeat = 'no-repeat';
+  }
+
+  // -----------------------------
+  // Utility Functions
+  // -----------------------------
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -58,52 +84,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-function handleCardClick(card) {
-  const inner = card.querySelector(".card-inner");
-  if (lock || inner.classList.contains("flipped")) return;
+  // -----------------------------
+  // Game Logic
+  // -----------------------------
+  function handleCardClick(card) {
+    const inner = card.querySelector(".card-inner");
+    if (lock || inner.classList.contains("flipped")) return;
 
-  inner.classList.add("flipped");
+    inner.classList.add("flipped");
 
-  if (!firstCard) {
-    firstCard = card;
-    return;
+    if (!firstCard) {
+      firstCard = card;
+      return;
+    }
+
+    const secondCard = card;
+    const firstId = firstCard.dataset.id;
+    const secondId = secondCard.dataset.id;
+
+    flips++;
+    flipDisplay.textContent = flips;
+
+    if (firstId === secondId && firstCard !== secondCard) {
+      score += 1;
+      scoreDisplay.textContent = score;
+
+      setTimeout(() => {
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+
+        if (score === cardData.length) {
+          setTimeout(() => {
+            document.getElementById("winModal").style.display = "block";
+          }, 500);
+        }
+
+        firstCard = null;
+        lock = false;
+      }, 600);
+    } else {
+      lock = true;
+      setTimeout(() => {
+        firstCard.querySelector(".card-inner").classList.remove("flipped");
+        secondCard.querySelector(".card-inner").classList.remove("flipped");
+        firstCard = null;
+        lock = false;
+      }, 1000);
+    }
   }
-
-  const secondCard = card;
-  const firstId = firstCard.dataset.id;
-  const secondId = secondCard.dataset.id;
-
-  // Count one flip pair here
-  flips++;
-  flipDisplay.textContent = flips;
-
-  if (firstId === secondId && firstCard !== secondCard) {
-    score += 1;
-    scoreDisplay.textContent = score;
-
-    setTimeout(() => {
-      firstCard.classList.add("matched");
-      secondCard.classList.add("matched");
-
-      if (score === cardData.length) {
-        setTimeout(() => {
-          document.getElementById("winModal").style.display = "block";
-        }, 500);
-      }
-
-      firstCard = null;
-      lock = false;
-    }, 600);
-  } else {
-    lock = true;
-    setTimeout(() => {
-      firstCard.querySelector(".card-inner").classList.remove("flipped");
-      secondCard.querySelector(".card-inner").classList.remove("flipped");
-      firstCard = null;
-      lock = false;
-    }, 1000);
-  }
-}
 
   function startNewGame() {
     score = 0;
@@ -113,23 +141,34 @@ function handleCardClick(card) {
     firstCard = null;
     lock = false;
     loadCards();
+    setRandomBackground(); // reset background
+
   }
 
+  // -----------------------------
+  // Button Listeners
+  // -----------------------------
   document.getElementById("ngb").addEventListener("click", startNewGame);
-
-  document.querySelector("#winModal .close-win").addEventListener("click", function () {
-    document.getElementById("winModal").style.display = "none";
-  });
 
   document.getElementById("nextGame").addEventListener("click", () => {
     document.getElementById("winModal").style.display = "none";
     startNewGame();
   });
 
+  document.querySelector("#winModal .close-win").addEventListener("click", () => {
+    document.getElementById("winModal").style.display = "none";
+  });
+
+  // -----------------------------
+  // Initial Load
+  // -----------------------------
   loadCards();
+  setRandomBackground();
 });
 
-// Modal for instructions
+// -----------------------------
+// Instruction Modal Logic
+// -----------------------------
 document.getElementById("openInstructions").addEventListener("click", function (e) {
   e.preventDefault();
   document.getElementById("instructionsModal").style.display = "block";
@@ -141,7 +180,7 @@ document.querySelector("#instructionsModal .close").addEventListener("click", fu
 
 window.addEventListener("click", function (event) {
   const modal = document.getElementById("instructionsModal");
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 });
