@@ -1,64 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-/* Cardbox styles */
+
+/* Base Body */
+html, body {
+  margin: 0; /* Removes default margin around the body */
+  font-family: 'Bangers', cursive, sans-serif; /* Set custom font for the page */
+  min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
+  background-size: cover; /* Ensures the background image covers the whole screen */
+  background-position: center center; /* Centers the background image */
+  background-attachment: fixed; /* Keeps the background fixed when scrolling */
+  height: 100%; /* Ensures full height without scrolling */
+  overflow: hidden; /* Disable scrolling */
+  background-image: url('../images/backgroundimage1.jpg'); /* Path to the background image */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed; /* Fixes the navbar at the top of the screen */
+  top: 0; /* Aligns the navbar to the top */
+  left: 0; /* Aligns the navbar to the left */
+  width: 100%; /* Makes the navbar take up the full width of the screen */
+  background-color: #0c2340; /* Sets the background color of the navbar */
+  padding: 20px 30px; /* Adds padding to the navbar */
+  border-bottom: 5px solid rgb(248, 94, 5); /* Adds a bottom border */
+  height: 80px; /* Fixed height for the navbar */
+  z-index: 10; /* Ensures the navbar appears above other content */
+}
+
+/* Navbar Links */
+.nav-links {
+  display: flex; /* Flexbox layout for navbar links */
+  gap: 20px; /* Adds space between the links */
+  position: absolute; /* Positions the links within the navbar */
+  left: 30px; /* Aligns the links to the left */
+  bottom: 0; /* Positions the links at the bottom of the navbar */
+}
+
+.nav-links a {
+  color: rgb(248, 94, 5); /* Sets the color of the navbar links */
+  text-decoration: none; /* Removes underline from links */
+  font-size: 1.5em; /* Sets the font size of the links */
+  padding: 8px 12px; /* Adds padding around the links */
+  border-radius: 4px; /* Rounds the corners of the link buttons */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+.nav-links a:hover {
+  background-color: orange; /* Changes background color on hover */
+  color: #0c2340; /* Changes text color on hover */
+}
+
+/* Title (Logo + Heading) */
+.title {
+  position: absolute; /* Centers the title within the navbar */
+  left: 50%; /* Centers the title horizontally */
+  transform: translateX(-50%); /* Adjusts the title's position */
+  text-align: center; /* Centers the title text */
+}
+
+.title .logo {
+  width: 60px; /* Sets the logo size */
+  display: block; /* Ensures the logo is block-level */
+  margin: 0 auto 5px auto; /* Centers the logo and adds margin */
+}
+
+.title h1 {
+  font-size: 2.5em; /* Font size for the title */
+  color: rgb(248, 94, 5); /* Title color */
+  margin: 0; /* Removes margin */
+  line-height: 1; /* Line height for better spacing */
+}
+
+/* Cardbox (for cards) */
 .cardbox {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0px;
-  padding: 0px;
-  width: 340px;               
-  height: 480px;               
-  margin: 0 auto;
-  margin-top: 40px;
-  /* Background images style */
-  background-repeat: no-repeat;
-  background-size: cover;      
-  background-position: center; 
-  position: relative;
-  z-index: 0;
+  display: flex; /* Flexbox layout for the cardbox */
+  flex-wrap: wrap; /* Ensures cards wrap to the next line if necessary */
+  justify-content: center; /* Centers the cards horizontally */
+  width: 100%; /* Takes full width */
+  max-width: 400px; /* Limits the max width */
+  margin: 50px auto; /* Centers the cardbox and adjusts top margin */
   background: none;
+  gap: 0x; /* Adds spacing between cards */
 }
 
-/* Card styles */
+/* Cards */
 .card {
-    width: 85px;
-    height: 120px;
-    background-color: #eee;
-    border: 0px solid #aaa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    padding: 0px;
-    perspective: 1000px;
-    position: relative;
-    z-index: 1;
-    margin: 0px;
-    gap: 0px;
-}
-.card:hover {
-    transform: scale(1.1);
+  width: 100px; /* Sets the card width */
+  height: 120px; /* Sets the card height */
+  border: none;
+  cursor: pointer; /* Makes the card clickable */
+  perspective: 1000px; /* Perspective for 3D card flip effect */
+  transition: transform 0.2s; /* Smooth transition for scaling */
 }
 
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.2s;
+.card:hover {
+  transform: scale(1.1); /* Card zoom effect on hover */
 }
-/* Style for flipping the card */
+
 .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s; /* Smooth transition for card flip */
+  transform-style: preserve-3d; /* Preserves 3D effect */
 }
-/* Style to flip the card */
+
 .card-inner.flipped {
-   transform: rotateY(180deg);
+  transform: rotateY(180deg); /* Flips the card */
 }
 
 .card-front,
@@ -66,134 +113,74 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.card-front img,
-.card-back img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.card-front {
-  background-color: #ccc;
+  backface-visibility: hidden; /* Hides the back of the card when flipped */
+  border-radius: 5px; /* Rounds the corners of the cards */
 }
 
 .card-back {
-  transform: rotateY(180deg);
-  background-color: #fff;
+  transform: rotateY(180deg); /* Flips the back of the card */
 }
-/* Scorebox style */
+
+.card-front img,
+.card-back img {
+  width: 100%; /* Ensures images cover the whole card */
+  height: 100%; /* Ensures images cover the whole card */
+  object-fit: cover; /* Keeps the image aspect ratio intact */
+}
+
+/* Matched Cards */
+.card.matched {
+  pointer-events: none; /* Prevents interaction with matched cards */
+  opacity: 0; /* Hides the matched cards */
+  transition: opacity 0.6s ease; /* Smooth fade-out transition */
+}
+
+/* Score & Flip Counter */
 .score-box {
-    width: 150px;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
-    background-color: #fff;
-    border: 2px solid #444;
-    border-radius: 5px;
-    color: #333;
-    font-weight: bold;
-}
-/* Navbar styles */
-body {
-  margin: 0;
-  font-family: 'Bangers', cursive, sans-serif;
-  /* Background image*/
-  background-image: url('../images/backgroundimage1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-  body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* Darken background */
-  z-index: -1;
+  width: 150px; /* Width of the score box */
+  margin: 20px auto; /* Centers the score box */
+  padding: 10px;
+  font-size: 20px;
+  text-align: center; /* Centers the text */
+  background-color: #fff;
+  border: 2px solid #444; /* Border around the score box */
+  border-radius: 5px;
+  color: #333;
+  font-weight: bold;
 }
 
-.navbar {
-  position: relative;
-  background-color: #0c2340;
-  padding: 20px 30px;
-  border-bottom: 5px solid rgb(248, 94, 5);
-  height: 80px;
-}
-/* Title and logo styles */
-.title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
+#flips {
+  color: rgb(248, 94, 5); /* Sets color of flip count */
+  font-size: 1.2em; /* Larger font for flip count */
 }
 
-.title .logo {
-  width: 60px;
-  height: auto;
-  display: block;
-  margin:0 auto 5px auto;
-}
-
-.title h1 {
-  font-size: 2.5em;
-  color: rgb(248, 94, 5);
-  margin: 0;
-  line-height: 1;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-  position: absolute;
-  left: 30px;
-  bottom: 0;
-}
-
-.nav-links a {
-  color: rgb(248, 94, 5);
-  text-decoration: none;
-  font-size: 1.5em;
-  transition: background-color 0.3s, color 0.3s;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-.nav-links a:hover {
-  background-color: orange;
-  color: #0c2340;
-}
- .modal {
-  display: none;
-  position: fixed;
+/* Modal Styles */
+.modal {
+  display: none; /* Initially hidden */
+  position: fixed; /* Fixed modal position */
   z-index: 999;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 100%; /* Full-screen modal */
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7);
+  overflow: auto; /* Scroll if content overflows */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
 }
-/* Modal content */
+
 .modal-content {
-  background-color: #fdf6e3;
-  margin: 10% auto;
+  background-color: #fdf6e3; /* Modal background color */
+  margin: 10% auto; /* Centers modal content */
   padding: 20px;
-  border: 3px solid orange;
-  width: 80%;
-  max-width: 800px;
+  border: 3px solid orange; /* Orange border around modal */
+  width: 80%; /* Modal width */
+  max-width: 800px; /* Max width */
   font-family: 'Bangers', cursive;
   color: #0c2340;
   position: relative;
 }
 
-.modal .close {
+.modal .close,
+.modal .close-win {
   color: #000;
   position: absolute;
   right: 20px;
@@ -203,9 +190,83 @@ body {
   cursor: pointer;
   z-index: 1000;
 }
-/* Card matched styles */
-.card.matched {
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.6s ease;
+
+/* Responsive Tablets */
+@media (max-width: 1024px) and (min-width: 600px) {
+  .navbar {
+    height: auto; /* Allows for more flexible navbar height */
+    flex-direction: column; /* Stacks navbar elements vertically */
+    padding: 15px 0; /* Adds padding for spacing */
+    text-align: center; /* Centers navbar text */
+  }
+
+  .title h1 {
+    font-size: 2em; /* Adjusted font size for tablet */
+  }
+
+  .cardbox {
+    width: 90%; /* Ensures cardbox fits nicely */
+    max-width: 300px; /* Limits cardbox width */
+    gap: 5px; /* Smaller gap for better fit */
+  }
+
+  .card {
+    width: 70px; /* Adjusted card width for tablet */
+    height: 100px; /* Adjusted card height for tablet */
+  }
+
+  .score-box {
+    width: 130px; /* Smaller score box */
+    font-size: 18px; /* Smaller font */
+  }
+}
+
+/* Responsive Phones */
+@media (max-width: 599px) {
+  .navbar {
+    flex-direction: column; /* Stacks navbar elements vertically */
+    padding: 20px 0; /* Padding for vertical spacing */
+    text-align: center; /* Centers navbar content */
+  }
+
+  .title {
+    position: static; /* Removes fixed positioning */
+    transform: none; /* Removes transform */
+    padding: 10px; /* Adds padding around title */
+  }
+
+  .title h1 {
+    font-size: 1.6em; /* Smaller font size for phones */
+    word-wrap: break-word; /* Ensures long text wraps */
+    line-height: 1.2; /* Adjust line height */
+  }
+
+  .logo {
+    width: 40px; /* Smaller logo */
+    margin-bottom: 5px; /* Space between logo and text */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stacks links vertically */
+    align-items: center; /* Centers the links */
+    gap: 10px; /* Adds spacing between links */
+    margin-top: 10px; /* Adds margin above the links */
+  }
+
+  .cardbox {
+    width: 100%; /* Ensures the cardbox fills the screen */
+    max-width: 260px; /* Limits the max width */
+    gap: 4px; /* Smaller gap between cards */
+    margin: 0 auto; /* Centers the cardbox */
+  }
+
+  .card {
+    width: 50px; /* Smaller card width */
+    height: 70px; /* Smaller card height */
+  }
+
+  .score-box {
+    width: 100px; /* Smaller score box */
+    font-size: 14px; /* Smaller font for the score */
+  }
 }
