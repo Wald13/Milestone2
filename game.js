@@ -213,3 +213,33 @@ document.addEventListener("DOMContentLoaded", () => {
   loadCards();
   setRandomBackground();
 });
+
+// Get the modal and elements for opening/closing
+var instructionModal = document.getElementById('instructionsModal');
+var closeBtn = document.querySelector('.close');
+var startGameBtn = document.getElementById('startGame');
+var openInstructionsBtn = document.getElementById('openInstructions'); // Open Instructions button
+
+// Open the modal when Instructions link is clicked
+openInstructionsBtn.onclick = function() {
+    instructionModal.style.display = "block";
+}
+
+// Close the modal when the "X" is clicked
+closeBtn.onclick = function() {
+    instructionModal.style.display = "none";
+}
+
+// Close the modal when the "Start Game" button is clicked
+startGameBtn.onclick = function() {
+    instructionModal.style.display = "none";
+    // Initialize the game logic here (e.g., reset score, start timer)
+    startGame();  // Replace with the function that starts your game
+}
+
+// Close the modal if the user clicks anywhere outside of it
+window.onclick = function(event) {
+    if (event.target == instructionModal) {
+        instructionModal.style.display = "none";
+    }
+}
