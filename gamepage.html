@@ -199,13 +199,22 @@
     </div>
 <script src="game.js" defer></script>
 
-<!-- Modal Container -->
+<!-- Modal Container for Instructions -->
 <div id="instructionsModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <iframe src="instructions.html" width="100%" height="400px" style="border: none;"></iframe>
-  </div>
-</div>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Game Instructions</h2>
+            <p>Here are the instructions for the card matching game:</p>
+            <ul>
+                <li>Click on the cards to flip them.</li>
+                <li>Find matching pairs to earn points.</li>
+                <li>Try to finish as quickly as possible!</li>
+                <li>Click "New Game" to restart the game.</li>
+            </ul>
+            <button id="startGame">Start Game</button>
+        </div>
+    </div>
+<!--Modal for Win Notification-->
 <div id="winModal" class="modal">
   <div class="modal-content">
     <span class="close-win">&times;</span>

@@ -275,55 +275,147 @@ html, body {
   z-index: 1000;
 }
 
-/* Responsive Layout for Tablets and Phones */
-@media (max-width: 1024px) and (min-width: 600px) {
-  /* Hide Sidebar on Tablets */
+/* Tablet screens (max width: 900px) */
+@media (max-width: 900px) {
   .sidebar {
-    display: none; /* Hide sidebar */
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-size: cover;
+    background-position: center;
   }
 
-  /* Show Score Box at the Bottom */
-  .score-box {
-    position: fixed; /* Ensure score box is fixed at the bottom */
-    bottom: 10px; /* Position it at the bottom */
-    left: 50%;
-    transform: translateX(-50%); /* Center the score box horizontally */
-  }
-
-  .cardbox {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
-    gap: 10px; /* Space between cards */
-  }
+.title h1 {
+  font-size: 2em;
 }
-
-@media (max-width: 599px) {
-  /* Hide Sidebar on Phones */
-  .sidebar {
-    display: none; /* Hide sidebar */
-  }
-
-  /* Show Score Box at the Bottom */
   .score-box {
-    position: fixed; /* Ensure score box is fixed at the bottom */
-    bottom: 10px; /* Position it at the bottom */
-    left: 50%;
-    transform: translateX(-50%); /* Center the score box horizontally */
-  }
-
-  .cardbox {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
-    gap: 10px; /* Space between cards */
-  }
-
-  .score-box {
-    font-size: 14px; /* Adjust font size */
-  }
-
-  #flips {
-    font-size: 1em; /* Adjust flip counter font size */
+    width: 35%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px;
   }
 
   #ngb {
-    font-size: 14px; /* Smaller font for New Game button */
+    font-size: 20px;
+    padding: 10px 16px;
+  }
+
+  .game-container {
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .cardbox {
+    max-width: 90vw;
+    max-height: 460px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6px;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .card {
+    width: 80px;
+    height: 100px;
+  }
+}
+
+/* Phone screens (max width: 600px) */
+@media (max-width: 600px) {
+  html, body {
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    background-size: cover;
+    background-position: center;
+  }
+
+.title h1 {
+  font-size: 1.5em;
+}
+.title .logo {
+  width: 40px;
+}
+  .score-box {
+    width: 35%;
+    font-size: 14px;
+    padding: 8px;
+    margin-top: 40px;
+  }
+
+  #ngb {
+    font-size: 18px;
+    padding: 8px 12px;
+    margin-top: 10px;
+  }
+
+  .game-container {
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 80px;
+    overflow: hidden;
+  }
+
+  .cardbox {
+    flex: none;
+    width: 100%;
+    height: 400px;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0;
+    justify-items: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+
+  .card {
+    width: 75px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    gap: 0;
+  }
+
+  .card-inner,
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-front img,
+  .card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 }
