@@ -21,11 +21,17 @@
 </div>
 </div>
 
-    <button id="ngb">New Game</button>
-    <br>Flips: <span id="flips">0</span>
-    <div class="score-box">
-        <span id="score">0</span>
-        Score: 
+    <div class="game-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="score-box">
+        Score: <span id="score">0</span><br>
+        Flips: <span id="flips">0</span>
+        <div id="timerDisplay">
+  Time: <span id="timer">0</span>
+</div>
+      </div>
+      <button id="ngb">New Game</button>
     </div>
 
     <div class="cardbox">
@@ -192,6 +198,7 @@
     </div>
     </div>
 <script src="game.js" defer></script>
+
 <!-- Modal Container -->
 <div id="instructionsModal" class="modal">
   <div class="modal-content">
@@ -204,7 +211,14 @@
     <span class="close-win">&times;</span>
     <h2>Congratulations! You matched all the cards!!!</h2>
     <button id="nextGame">Next Game</button>
-  </div>
+  <!-- Display Round -->
+<div id="roundDisplay">Round: 1</div>
+<!-- Display Total Score -->
+<div id="totalScoreDisplay">Total Score: 0</div>
+<!-- Display Games Won -->
+<div id="gamesWonDisplay">Games Won: 0</div>
+
+</div>
 </div>
 </body>
 </html>

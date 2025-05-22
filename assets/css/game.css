@@ -2,15 +2,15 @@
 
 /* Base Body */
 html, body {
-  margin: 0; /* Removes default margin around the body */
-  font-family: 'Bangers', cursive, sans-serif; /* Set custom font for the page */
-  min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
-  background-size: cover; /* Ensures the background image covers the whole screen */
-  background-position: center center; /* Centers the background image */
-  background-attachment: fixed; /* Keeps the background fixed when scrolling */
-  height: 100%; /* Ensures full height without scrolling */
-  overflow: hidden; /* Disable scrolling */
-  background-image: url('../images/backgroundimage1.jpg'); /* Path to the background image */
+  margin: 0;
+  font-family: 'Bangers', cursive, sans-serif;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100%;
+  overflow: hidden;
+  background-image: url('../images/sidebarimage2.jpg');
 }
 
 /* Navbar */
@@ -70,6 +70,82 @@ html, body {
   line-height: 1; /* Line height for better spacing */
 }
 
+/* Game layout */
+.game-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 80px); /* leave room for navbar */
+  margin-top: 80px; /* match navbar height */
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 550px; /* Set the sidebar width */
+  height: 100vh; /* Full height of the viewport */
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for the sidebar */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-right: 2px solid #ccc;
+  position: relative;
+  z-index: 5;
+  background-image: url('../images/sidebarimage4.jpg'); /* Set the image for the sidebar */
+  background-size: cover; /* Ensure image covers the whole sidebar */
+ background-position: left; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* Score box */
+.score-box {
+  width: 50%;
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid #444;
+  border-radius: 5px;
+  color: #333;
+  font-weight: bold;
+  margin-top: 80px; /* Space from the top */
+}
+
+/* New Game button */
+#ngb {
+  color:rgb(216, 79, 0);
+  padding: 10px 20px;
+  font-size: 24px;
+  font-family: 'Bangers', cursive;
+  cursor: pointer;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#ngb:hover {
+  background-color: #814e00;
+  color: #fff;
+}
+
+/* Adjust cardbox to fill remaining space */
+.cardbox {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: auto;
+  padding: 20px;
+ 
+}
+
 /* Cardbox (for cards) */
 .cardbox {
   display: flex; /* Flexbox layout for the cardbox */
@@ -79,7 +155,8 @@ html, body {
   max-width: 400px; /* Limits the max width */
   margin: 50px auto; /* Centers the cardbox and adjusts top margin */
   background: none;
-  gap: 0x; /* Adds spacing between cards */
+  gap: 0px; /* Adds spacing between cards */
+  max-height: 480px;
 }
 
 /* Cards */
@@ -90,6 +167,8 @@ html, body {
   cursor: pointer; /* Makes the card clickable */
   perspective: 1000px; /* Perspective for 3D card flip effect */
   transition: transform 0.2s; /* Smooth transition for scaling */
+  margin: 0;
+  padding: 0;
 }
 
 .card:hover {
@@ -136,24 +215,29 @@ html, body {
 }
 
 /* Score & Flip Counter */
-.score-box {
-  width: 150px; /* Width of the score box */
-  margin: 20px auto; /* Centers the score box */
-  padding: 10px;
-  font-size: 20px;
-  text-align: center; /* Centers the text */
-  background-color: #fff;
-  border: 2px solid #444; /* Border around the score box */
-  border-radius: 5px;
-  color: #333;
-  font-weight: bold;
-}
-
 #flips {
   color: rgb(248, 94, 5); /* Sets color of flip count */
   font-size: 1.2em; /* Larger font for flip count */
 }
-
+#score {
+  color: rgb(248, 94, 5); 
+  font-size: 1.2em; 
+}
+#timer {
+  color: rgb(248, 94, 5); 
+  font-size: 1.2em; 
+}
+#nextgame {
+  color:rgb(216, 79, 0);
+  padding: 10px 20px;
+  font-size: 24px;
+  font-family: 'Bangers', cursive;
+  cursor: pointer;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
 /* Modal Styles */
 .modal {
   display: none; /* Initially hidden */
@@ -191,82 +275,55 @@ html, body {
   z-index: 1000;
 }
 
-/* Responsive Tablets */
+/* Responsive Layout for Tablets and Phones */
 @media (max-width: 1024px) and (min-width: 600px) {
-  .navbar {
-    height: auto; /* Allows for more flexible navbar height */
-    flex-direction: column; /* Stacks navbar elements vertically */
-    padding: 15px 0; /* Adds padding for spacing */
-    text-align: center; /* Centers navbar text */
+  /* Hide Sidebar on Tablets */
+  .sidebar {
+    display: none; /* Hide sidebar */
   }
 
-  .title h1 {
-    font-size: 2em; /* Adjusted font size for tablet */
+  /* Show Score Box at the Bottom */
+  .score-box {
+    position: fixed; /* Ensure score box is fixed at the bottom */
+    bottom: 10px; /* Position it at the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center the score box horizontally */
   }
 
   .cardbox {
-    width: 90%; /* Ensures cardbox fits nicely */
-    max-width: 300px; /* Limits cardbox width */
-    gap: 5px; /* Smaller gap for better fit */
-  }
-
-  .card {
-    width: 70px; /* Adjusted card width for tablet */
-    height: 100px; /* Adjusted card height for tablet */
-  }
-
-  .score-box {
-    width: 130px; /* Smaller score box */
-    font-size: 18px; /* Smaller font */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
+    gap: 10px; /* Space between cards */
   }
 }
 
-/* Responsive Phones */
 @media (max-width: 599px) {
-  .navbar {
-    flex-direction: column; /* Stacks navbar elements vertically */
-    padding: 20px 0; /* Padding for vertical spacing */
-    text-align: center; /* Centers navbar content */
+  /* Hide Sidebar on Phones */
+  .sidebar {
+    display: none; /* Hide sidebar */
   }
 
-  .title {
-    position: static; /* Removes fixed positioning */
-    transform: none; /* Removes transform */
-    padding: 10px; /* Adds padding around title */
-  }
-
-  .title h1 {
-    font-size: 1.6em; /* Smaller font size for phones */
-    word-wrap: break-word; /* Ensures long text wraps */
-    line-height: 1.2; /* Adjust line height */
-  }
-
-  .logo {
-    width: 40px; /* Smaller logo */
-    margin-bottom: 5px; /* Space between logo and text */
-  }
-
-  .nav-links {
-    flex-direction: column; /* Stacks links vertically */
-    align-items: center; /* Centers the links */
-    gap: 10px; /* Adds spacing between links */
-    margin-top: 10px; /* Adds margin above the links */
+  /* Show Score Box at the Bottom */
+  .score-box {
+    position: fixed; /* Ensure score box is fixed at the bottom */
+    bottom: 10px; /* Position it at the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center the score box horizontally */
   }
 
   .cardbox {
-    width: 100%; /* Ensures the cardbox fills the screen */
-    max-width: 260px; /* Limits the max width */
-    gap: 4px; /* Smaller gap between cards */
-    margin: 0 auto; /* Centers the cardbox */
-  }
-
-  .card {
-    width: 50px; /* Smaller card width */
-    height: 70px; /* Smaller card height */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
+    gap: 10px; /* Space between cards */
   }
 
   .score-box {
-    width: 100px; /* Smaller score box */
-    font-size: 14px; /* Smaller font for the score */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  #flips {
+    font-size: 1em; /* Adjust flip counter font size */
+  }
+
+  #ngb {
+    font-size: 14px; /* Smaller font for New Game button */
   }
 }
