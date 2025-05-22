@@ -300,60 +300,6 @@ html, body {
   transition: background-color 0.3s;
 }
 
-/* Tablet screens (max width: 900px) */
-@media (max-width: 900px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background-size: cover;
-    background-position: center;
-  }
-
-.title h1 {
-  font-size: 2em;
-}
-  .score-box {
-    width: 35%;
-    font-size: 16px;
-    padding: 10px;
-    margin: 5px;
-  }
-
-  #ngb {
-    font-size: 20px;
-    padding: 10px 16px;
-  }
-
-  .game-container {
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .cardbox {
-    max-width: 90vw;
-    max-height: 460px;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 6px;
-    justify-items: center;
-    align-items: center;
-    margin: auto;
-    overflow: hidden;
-  }
-
-  .card {
-    width: 80px;
-    height: 100px;
-  }
-}
-
 /* Phone screens (max width: 600px) */
 @media (max-width: 600px) {
   html, body {
@@ -376,7 +322,7 @@ html, body {
   }
 
 .title h1 {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .title .logo {
@@ -445,3 +391,69 @@ html, body {
     display: block;
   }
 }
+
+/* Tablet screens (max width: 900px) */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 40px;
+  }
+
+.title h1 {
+  font-size: 2em;
+}
+  .score-box {
+    width: 20%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px;
+  }
+
+  #ngb {
+    font-size: 20px;
+    padding: 10px 16px;
+  }
+
+  .game-container {
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .cardbox {
+    flex: none;
+    width: 300px;
+    height: 400px;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0;
+    justify-items: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+
+   .card {
+    width: 75px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    gap: 0;
+  }
+}
+
