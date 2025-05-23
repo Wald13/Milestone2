@@ -143,19 +143,11 @@ html, body {
   background-repeat: no-repeat;
   overflow-y: auto;
   padding: 20px;
- 
-}
-
-/* Cardbox (for cards) */
-.cardbox {
-  display: flex; /* Flexbox layout for the cardbox */
-  flex-wrap: wrap; /* Ensures cards wrap to the next line if necessary */
-  justify-content: center; /* Centers the cards horizontally */
-  width: 100%; /* Takes full width */
-  max-width: 400px; /* Limits the max width */
-  margin: 150px auto; /* Centers the cardbox and adjusts top margin */
+  width: 100%;
+  max-width: 400px;
+  margin: 150px auto;
   background: none;
-  gap: 0px; /* Adds spacing between cards */
+  gap: 0px;
   max-height: 480px;
 }
 
