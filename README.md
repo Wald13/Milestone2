@@ -195,16 +195,22 @@ Performance
 
 ## How the webpage looks like:
 
-![Main Page](assets\images\htmlpage1.jpg)
-![Game Page](assets\images\htmlgamepage.jpg)
-![Instructions Page](assets\images\instructionspage.jpg)
-![Wingamemodal Page](assets\images\wingamemodal.jpg)
+![Main Page](assets/images/htmlpage1.jpg)
+![Game Page](assets/images/htmlgamepage.jpg)
+![Instructions Page](assets/images/instructionspage.jpg)
+![Wingamemodal Page](assets/images/wingamemodal.jpg)
 
 ## Validators screenshots:
 
-![Main Page html check](\assets\images\htmlpage1-checkresult.jpg)
-![Main Page css check](\assets\images\csshomepage-checkresult.jpg)
-![Game Page html check](\assets\images\htmlgamepage1-checkresult.jpg)
-![Game Page css check](\assets\images\cssgamepage-checkresult.jpg)
-![Instructions Page html check](\assets\images\instructionpagehtml-checkresult.jpg)
-![Instructions Page css check](\assets\images\instructionpagecss-checkresult.jpg)
+![Main Page html check](assets/images/htmlpage1-checkresult.jpg)
+![Main Page css check](assets/images/csshomepage-checkresult.jpg)
+![Game Page html check](assets/images/htmlgamepage1-checkresult.jpg)
+![Game Page css check](assets/images/cssgamepage-checkresult.jpg)
+![Instructions Page html check](assets/images/instructionpagehtml-checkresult.jpg)
+![Instructions Page css check](assets/images/instructionpagecss-checkresult.jpg)
+
+## Lighthouse check:
+
+![Main Page](https://pagespeed.web.dev/analysis/https-wald13-github-io-Milestone2-index-html/jv9mgbz1ch?form_factor=mobile)
+![Game Page](https://pagespeed.web.dev/analysis/https-wald13-github-io-Milestone2-gamepage-html/43q0wq5cpl?form_factor=desktop)
+[Instructions Page](https://pagespeed.web.dev/analysis/https-wald13-github-io-Milestone2-gamepage-html/llenl3yid9?form_factor=desktop)
