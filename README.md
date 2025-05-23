@@ -202,9 +202,9 @@ Performance
 
 ## Validators screenshots:
 
-![Main Page html check](assets\images\htmlpage1-checkresult.jpg)
-![Main Page css check](assets\images\csshomepage-checkresult.jpg)
-![Game Page html check](assets\images\htmlgamepage1-checkresult.jpg)
-![Game Page css check](assets\images\cssgamepage-checkresult.jpg)
-![Instructions Page html check](assets\images\instructionpagehtml-checkresult.jpg)
-![Instructions Page css check](assets\images\instructionpagecss-checkresult.jpg)
+![Main Page html check](\assets\images\htmlpage1-checkresult.jpg)
+![Main Page css check](\assets\images\csshomepage-checkresult.jpg)
+![Game Page html check](\assets\images\htmlgamepage1-checkresult.jpg)
+![Game Page css check](\assets\images\cssgamepage-checkresult.jpg)
+![Instructions Page html check](\assets\images\instructionpagehtml-checkresult.jpg)
+![Instructions Page css check](\assets\images\instructionpagecss-checkresult.jpg)
