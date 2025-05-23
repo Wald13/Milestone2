@@ -64,7 +64,7 @@ body {
 }
 
 h1 {
-  color: #ff0202;
+  color: rgb(248, 94, 5);
   font-size: 3em;
 }
 
@@ -130,7 +130,27 @@ h1 {
     background-color: rgba(0, 0, 0, 0.4);
   }
 
+.instructions-wrapper {
+  margin-top: 20px;
+  background-color: black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: rgba( 0, 0 , 0 , 0.8);
+}
 
+.instructions {
+  font-size: 1.8em;
+  color: rgb(248, 94, 5);
+  margin-bottom: 10px;
+}
+
+.instructions-wrapper ul {
+  font-size: 1.4em;
+  color: rgb(248, 94, 5);
+  margin: 0;
+  padding-left: 20px;
+}
 /* Phones (max width 599px) */
 @media (max-width: 599px) {
   .navbar {
