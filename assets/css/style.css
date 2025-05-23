@@ -3,7 +3,6 @@
 body {
   margin: 0;
   font-family: 'Bangers', cursive, sans-serif;
- 
   background-image: url('../images/backgroundimage2.jpg');
   background-size: cover;
   background-position: center;
@@ -130,6 +129,15 @@ h1 {
     background-color: rgba(0, 0, 0, 0.4);
   }
 
+.content {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px 30px;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  margin: 200px 700px ; /* centers horizontally with space from navbar */
+}
+
 .instructions-wrapper {
   margin-top: 20px;
   background-color: black;
@@ -151,30 +159,18 @@ h1 {
   margin: 0;
   padding-left: 20px;
 }
-/* Phones (max width 599px) */
+
+/* Media query for mobile phones */
 @media (max-width: 599px) {
   .navbar {
     height: auto;
     flex-direction: column;
-    padding: 20px 0;
+    padding: 15px 10px;
     text-align: center;
-  }
-
-  .title {
-    position: static;
-    transform: none;
-    padding: 10px;
-  }
-
-  .title h1 {
-    font-size: 1.6em;
-    word-wrap: break-word;
-    line-height: 1.2;
   }
 
   .logo {
     width: 40px;
-    height: auto;
     margin-bottom: 5px;
   }
 
@@ -182,19 +178,48 @@ h1 {
     position: static;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     margin-top: 10px;
   }
 
   .nav-links a {
     font-size: 1em;
-    padding: 5px 8px;
+    padding: 6px 10px;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+    line-height: 1.2;
+    padding: 10px;
+  }
+
+  .content {
+    width: 90%;
+    margin: 30px auto 0 auto;
+    padding: 15px 10px;
+  }
+
+  .instructions-wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .instructions {
+    font-size: 1.4em;
+  }
+
+  .instructions-wrapper ul {
+    font-size: 1.2em;
+    padding-left: 15px;
   }
 
   .cardbox {
-    width: 260px;
-    height: auto;
-    gap: 4px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
   }
 
   .card {
@@ -203,17 +228,98 @@ h1 {
   }
 
   .score-box {
-    width: 120px;
     font-size: 16px;
+    width: auto;
+    margin: 10px auto;
   }
-}
 
   body {
-    background-size: cover;
     background-position: center top;
-    background-attachment: scroll;
+    background-size: cover;
   }
 
   body::before {
-    background-color: rgba(0, 0, 0, 0.5); /* darker for small screens */
+    background-color: rgba(0, 0, 0, 0.6);
   }
+}
+
+/* Media query for tablets */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .navbar {
+    height: auto;
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .logo {
+    width: 50px;
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    position: static;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    font-size: 1.2em;
+    padding: 8px 12px;
+  }
+
+  .title h1 {
+    font-size: 2em;
+    padding: 10px;
+  }
+
+  .content {
+    width: 80%;
+    margin: 40px auto 0 auto;
+    padding: 20px 20px;
+  }
+
+  .instructions-wrapper {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .instructions {
+    font-size: 1.6em;
+  }
+
+  .instructions-wrapper ul {
+    font-size: 1.3em;
+    padding-left: 20px;
+  }
+
+  .cardbox {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  .card {
+    width: 70px;
+    height: 100px;
+  }
+
+  .score-box {
+    font-size: 18px;
+    width: auto;
+    margin: 15px auto;
+  }
+
+  body {
+    background-position: center top;
+    background-size: cover;
+  }
+
+  body::before {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
